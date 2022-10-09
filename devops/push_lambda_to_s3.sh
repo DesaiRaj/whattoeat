@@ -23,7 +23,7 @@ function push_zip_to_s3 {
   aws s3 cp "$1"-"$CI_COMMIT_REF_NAME"-"$COMMIT_SHA".zip s3://"$AWS_S3_BUCKET"/"$1"/"$1"-"$CI_COMMIT_REF_NAME"-"$CI_COMMIT_SHA".zip --acl bucket-owner-full-control
   echo "Successfully pushed ZIP to s3://$AWS_S3_BUCKET/$1/$1-$CI_COMMIT_REF_NAME-$CI_COMMIT_SHA.zip"
   sleep 5
-  aws lambda update-function-code --function-name whattoeat-suggestion --s3-bucket "$AWS_S3_BUCKET" --s3-key "$1"/"$1"-"$CI_COMMIT_REF_NAME"-"$CI_COMMIT_SHA".zip
+  aws lambda update-function-code --function-name "$1" --s3-bucket "$AWS_S3_BUCKET" --s3-key "$1"/"$1"-"$CI_COMMIT_REF_NAME"-"$CI_COMMIT_SHA".zip
 }
 
 AWSCLI_VERSION='1.18.14'
