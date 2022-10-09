@@ -4,7 +4,7 @@ import boto3
 
 def lambda_handler(event, context):
     # TODO implement
-    print("Hello from zip")
+    print("Hello from zip with github action")
     print(event)
     return {
         'statusCode': 200,
