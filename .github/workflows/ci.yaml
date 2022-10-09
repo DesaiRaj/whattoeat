@@ -1,0 +1,37 @@
+name: Service zip
+
+on: [push]
+
+jobs:
+  push:
+    name: Build service zip and push to S3
+    runs-on: ubuntu-latest
+    env:
+      CI_COMMIT_SHA: ${{ github.sha }}
+      AWS_S3_BUCKET: 'wte-lambdas-dev'
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Setup python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.10'
+      - name: Set branch env
+        run: echo ::set-env name=CI_COMMIT_REF_NAME::$(echo $GITHUB_REF | cut -d '/' -f 3)
+      - name: Set commit short sha env
+        run: echo ::set-env name=CI_COMMIT_SHA::$(git rev-parse --short ${{ github.sha }})
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1.0.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET }}
+          aws-region: ap-south-1
+      - name: Push lambdas to s3
+        env:
+          CONTAINERIZATION_PWD: ./
+          CONTAINER_NAME: whattoeat
+          DEPLOYMENT_NAME: whattoeat
+        run: |
+          ./devops/push_lambda_to_s3.sh
