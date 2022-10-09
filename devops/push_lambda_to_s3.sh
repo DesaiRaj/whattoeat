@@ -15,7 +15,7 @@ function create_zip_with_dependencies {
   echo "Successfully created ZIP"
   cd "$ROOT" || exit
   cp "$ROOT"/"$LAMBDA"/"$LAMBDA".zip "$TARGET_LAMBDA"-"$CI_COMMIT_REF_NAME"-"$COMMIT_SHA".zip
-  echo "Successfully created ZIP $TARGET_LAMBDA-$CI_COMMIT_REF_NAME-$COMMIT_SHA.zip"
+  echo "Successfully created ZIP file $TARGET_LAMBDA-$CI_COMMIT_REF_NAME-$COMMIT_SHA.zip"
 }
 
 
