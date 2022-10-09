@@ -28,7 +28,9 @@ function push_zip_to_s3 {
 
 AWSCLI_VERSION='1.18.14'
 create_zip_with_dependencies suggestion suggestion
+create_zip_with_dependencies dish dish
 
 
 pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 push_zip_to_s3 suggestion
+push_zip_to_s3 dish
