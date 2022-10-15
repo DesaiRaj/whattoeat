@@ -1,5 +1,5 @@
 import unittest
-from dish.domain.dish import Dish
+from domain.dish import Dish
 
 
 class TestDomainSpec(unittest.TestCase):

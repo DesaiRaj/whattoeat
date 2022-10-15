@@ -1,6 +1,6 @@
 import unittest
-from dish.dish_service.dish_service import DishService
-from dish.domain.response import DishResponse
+from dish_service.dish_service import DishService
+from domain.response import DishResponse
 
 
 class TestDishServiceSpec(unittest.TestCase):

@@ -1,6 +1,6 @@
-from dish.dao.ddb import DDBDAO
-from dish.domain.response import Ingredient
-from dish.domain.response import DishResponse
+from dao.ddb import DDBDAO
+from domain.response import Ingredient
+from domain.response import DishResponse
 
 
 class DishService():

@@ -1,5 +1,5 @@
 import unittest
-from dish.dao.ddb import DDBDAO
+from dao.ddb import DDBDAO
 
 
 class TestDAODDBSpec(unittest.TestCase):

@@ -1,6 +1,6 @@
 import boto3
-from dish.domain.dish import Dish
-from dish.domain.ingredient import Ingredient
+from domain.dish import Dish
+from domain.ingredient import Ingredient
 
 
 class DDBDAO():
