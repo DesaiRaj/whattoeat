@@ -22,6 +22,10 @@ class DDBDAO():
 
     def get_dish(self, id):
         response = self.dishes_table.get_item(Key={'id': id})
+        dish_exists = True if 'Item' in response else False
+
         item = response['Item']['dish_details']
         return Dish.from_json(item)
+
+
 

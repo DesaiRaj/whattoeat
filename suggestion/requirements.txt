@@ -1,1 +1,3 @@
 boto3==1.24.89
+dataclasses-json==0.5.7
+tzdata==2022.5
