@@ -1,6 +1,6 @@
 from dao.ddb import DDBDAO
 from domain.response import Ingredient
-from domain.response import DishResponse
+from domain.response import Dish
 
 
 class DishService():
@@ -20,10 +20,10 @@ class DishService():
             ingredient_detail = self.get_ingredient(ingredient)
             ingredient_details.append(ingredient_detail)
 
-        return DishResponse(id=dish.id,
-                            name=dish.name,
-                            description=dish.description,
-                            detailed_description=dish.detailed_description,
-                            images=dish.images,
-                            ingredients=ingredient_details,
-                            videos=dish.videos)
+        return Dish(id=dish.id,
+                    name=dish.name,
+                    description=dish.description,
+                    detailed_description=dish.detailed_description,
+                    images=dish.images,
+                    ingredients=ingredient_details,
+                    videos=dish.videos)
