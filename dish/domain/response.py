@@ -21,7 +21,7 @@ class Link:
 
 @dataclass_json
 @dataclass
-class DishResponse:
+class Dish:
     id: str
     name: str
     description: str
@@ -29,4 +29,20 @@ class DishResponse:
     images: List[Link]
     ingredients: List[Ingredient]
     videos: List[Link]
+
+
+@dataclass_json
+@dataclass
+class Date:
+    date: str
+    day: str
+    zone: str
+
+
+@dataclass_json
+@dataclass
+class DishResponse:
+    date: Date
+    dish: Dish
+
 
