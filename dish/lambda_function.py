@@ -1,6 +1,5 @@
-import json
-from dish.dish_service.dish_service import DishService
-from dish.domain.response import DishResponse
+from dish_service.dish_service import DishService
+from domain.response import DishResponse
 
 
 def lambda_handler(event, context):
