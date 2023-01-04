@@ -10,8 +10,7 @@ class SuggestionService():
         self.DAO = DDBDAO()
 
     def get_today_id(self):
-        print(datetime.now(tz=ZoneInfo('Asia/Kolkata')).day)
-        return "1"
+        return datetime.now(tz=ZoneInfo('Asia/Kolkata')).day
 
     def get_dish(self, id):
         dish_details = self.DAO.get_dish(id)
