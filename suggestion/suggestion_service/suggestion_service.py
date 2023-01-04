@@ -10,7 +10,7 @@ class SuggestionService():
         self.DAO = DDBDAO()
 
     def get_today_id(self):
-        return datetime.now(tz=ZoneInfo('Asia/Kolkata')).day
+        return datetime.now(tz=ZoneInfo('Asia/Kolkata')).day.__str__()
 
     def get_dish(self, id):
         dish_details = self.DAO.get_dish(id)
@@ -21,6 +21,7 @@ class SuggestionService():
 
     def get_suggestion(self):
         id = self.get_today_id()
+        print(f"Getting suggestions for the day: {id}")
         suggestion = self.DAO.get_suggestion(id)
         suggestions = []
         for sg in suggestion.dishes:
